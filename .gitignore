@@ -1,0 +1,12 @@
+## LIBS INSTALATIONS
+
+node_modules
+coverage
+
+## ENVIRONMENT
+
+.env
+
+## PRISMA MIGRATIONS
+
+prisma/migrations
