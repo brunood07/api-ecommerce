@@ -7,7 +7,11 @@ class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute({
-    username,
+    firstName,
+    lastName,
+    document,
+    phoneNumber,
+    dateOfBirth,
     password,
     email,
   }: ICreateUserDTO): Promise<ICreateUserDTO> {
@@ -18,7 +22,11 @@ class CreateUserUseCase {
     const hashPassword = await hash(password, 10);
 
     const newUser = this.usersRepository.create({
-      username,
+      firstName,
+      lastName,
+      document,
+      phoneNumber,
+      dateOfBirth,
       password: hashPassword,
       email,
     });

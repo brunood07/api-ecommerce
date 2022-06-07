@@ -8,11 +8,19 @@ class UsersRepository implements IUsersRepository {
   async create({
     email,
     password,
-    username,
+    dateOfBirth,
+    document,
+    firstName,
+    lastName,
+    phoneNumber,
   }: ICreateUserDTO): Promise<ICreateUserDTO> {
     const newUser = await prisma.users.create({
       data: {
-        username,
+        firstName,
+        lastName,
+        document,
+        phoneNumber,
+        dateOfBirth,
         password,
         email,
       },

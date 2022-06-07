@@ -5,12 +5,24 @@ import { CreateUserUseCase } from "./CreateUserUseCase";
 
 class CreateUserController {
   async handle(req: Request, res: Response): Promise<Response> {
-    const { username, password, email } = req.body;
+    const {
+      firstName,
+      lastName,
+      document,
+      phoneNumber,
+      dateOfBirth,
+      password,
+      email,
+    } = req.body;
 
     const createUserUseCase = new CreateUserUseCase(new UsersRepository());
 
     const result = await createUserUseCase.execute({
-      username,
+      firstName,
+      lastName,
+      document,
+      phoneNumber,
+      dateOfBirth,
       password,
       email,
     });

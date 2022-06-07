@@ -18,7 +18,11 @@ describe("Create user controller", () => {
     const response = await request(app)
       .post("/users/")
       .send({
-        username: makeid(7),
+        firstName: makeid(7),
+        lastName: makeid(7),
+        document: makeid(10),
+        phoneNumber: makeid(11),
+        dateOfBirth: makeid(8),
         email: makeid(4) + "@getPrismaClient.com",
         password: makeid(6),
       });

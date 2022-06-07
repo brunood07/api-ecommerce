@@ -5,9 +5,21 @@ import { IUsersRepository } from "../IUsersRepository";
 class UsersRepositoryInMemory implements IUsersRepository {
   users = [];
 
-  async create({ username, password, email }): Promise<ICreateUserDTO> {
+  async create({
+    firstName,
+    lastName,
+    document,
+    phoneNumber,
+    dateOfBirth,
+    password,
+    email,
+  }): Promise<ICreateUserDTO> {
     const user = {
-      username,
+      firstName,
+      lastName,
+      document,
+      phoneNumber,
+      dateOfBirth,
       password,
       email,
     };
