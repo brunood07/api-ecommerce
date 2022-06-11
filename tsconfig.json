@@ -18,6 +18,9 @@
       "@errors/*": [
         "errors/*"
       ],
+      "@providers/*": [
+        "providers/*"
+      ],
       "@utils/*": [
         "utils/*"
       ]
