@@ -21,5 +21,18 @@ model Users {
   email       String @unique
   password    String
 
+  Tokens Tokens[]
   @@map("users")
+}
+
+model Tokens {
+  id            String    @id @default(uuid())
+  refresh_token String
+  user          Users     @relation(fields: [user_id], references: [id])
+  user_id       String
+  expires_date  DateTime
+  createad_at   DateTime? @default(now())
+  usersId       String?
+
+  @@map("tokens")
 }

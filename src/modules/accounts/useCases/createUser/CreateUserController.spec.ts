@@ -27,6 +27,6 @@ describe("Create user controller", () => {
         password: makeid(6),
       });
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(400);
   });
 });

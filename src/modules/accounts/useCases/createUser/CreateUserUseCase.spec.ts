@@ -20,7 +20,7 @@ describe("Create a new user", () => {
       document: "123456",
       phoneNumber: "99999999",
       dateOfBirth: "07/02/1991",
-      password: "123",
+      password: "Bruno123*",
       email: "brunood08@gmail.com",
     });
 
@@ -34,7 +34,7 @@ describe("Create a new user", () => {
       document: "123456",
       phoneNumber: "99999999",
       dateOfBirth: "07/02/1991",
-      password: "123",
+      password: "Bruno123*",
       email: "brunood08@gmail.com",
     });
 
@@ -45,9 +45,23 @@ describe("Create a new user", () => {
         document: "123456",
         phoneNumber: "99999999",
         dateOfBirth: "07/02/1991",
-        password: "123",
+        password: "Bruno123*",
         email: "brunood08@gmail.com",
       })
     ).rejects.toEqual(new AppError("User already exists!"));
+  });
+
+  it("Should not be able to create a new user if the password does not have at least 8 characters", async () => {
+    expect(async () => {
+      await createUserUseCase.execute({
+        firstName: "Bruno",
+        lastName: "Domingues",
+        document: "123456",
+        phoneNumber: "99999999",
+        dateOfBirth: "07/02/1991",
+        password: "Bruno12*",
+        email: "brunood08@gmail.com",
+      });
+    }).rejects.toBeInstanceOf(AppError);
   });
 });

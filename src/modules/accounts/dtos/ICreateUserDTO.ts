@@ -1,4 +1,5 @@
 export interface ICreateUserDTO {
+  id?: string;
   firstName: string;
   lastName: string;
   document: string;
