@@ -8,6 +8,6 @@ const authenticateUserController = new AuthenticateUserController();
 const refreshTokenController = new RefreshTokenController();
 
 authenticateRoutes.post("/session", authenticateUserController.handle);
-authenticateRoutes.post("/refresh-session", refreshTokenController.handle);
+authenticateRoutes.post("/refresh", refreshTokenController.handle);
 
 export { authenticateRoutes };

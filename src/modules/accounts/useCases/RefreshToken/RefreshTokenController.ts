@@ -6,11 +6,9 @@ import { DayjsDateProvider } from "@shared/providers/DateProvider/Implementation
 import { RefreshTokenUseCase } from "./RefreshTokenUseCase";
 
 class RefreshTokenController {
-  async handle(request: Request, response: Response): Promise<Response> {
+  async handle(req: Request, res: Response): Promise<Response> {
     const token =
-      request.body.token ||
-      request.headers["x-access-token"] ||
-      request.query.token;
+      req.body.token || req.headers["x-access-token"] || req.query.token;
 
     const refreshTokenUseCase = new RefreshTokenUseCase(
       new UsersTokensRepository(),
@@ -19,7 +17,7 @@ class RefreshTokenController {
 
     const refresh_token = await refreshTokenUseCase.execute(token);
 
-    return response.json(refresh_token);
+    return res.json(refresh_token);
   }
 }
 
